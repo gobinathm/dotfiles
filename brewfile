@@ -1,0 +1,334 @@
+# Visit http://macappstore.org to understand & disable the application which are not need for your system
+
+# Install GNU core utilities (those that come with macOS are outdated).
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+brew 'coreutils'
+
+# Install some other useful utilities like `sponge`.
+brew 'moreutils'
+
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
+brew 'findutils'
+
+# Install collection of binary tools
+brew 'binutils'
+
+# Install GNU `sed`, overwriting the built-in `sed`.
+brew 'gnu-sed', args: ['default-names']
+
+# Install wget with IRI support
+brew 'wget', args: ['with-iri']
+
+## PICK Your Fav Shell ##
+
+# Install Bash 4.
+# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
+# running `chsh`.
+brew 'bash'
+brew 'bash-completion2'
+
+# Install zsh.
+# Note: don’t forget to add `/usr/local/bin/zsh` to `/etc/shells` before
+# running `chsh`.
+brew 'zsh'
+brew 'zsh-completions'
+
+# Install useful completions
+brew 'homebrew/completions/brew-cask-completion'
+brew 'homebrew/completions/bundler-completion'
+brew 'homebrew/completions/gem-completion'
+brew 'homebrew/completions/grunt-completion'
+brew 'homebrew/completions/launchctl-completion'
+brew 'homebrew/completions/open-completion'
+brew 'homebrew/completions/ruby-completion'
+brew 'homebrew/completions/vagrant-completion'
+
+# Install RingoJS and Narwhal.
+# Note that the order in which these are installed is important;
+# see http://git.io/brew-narwhal-ringo.
+brew 'ringojs'
+brew 'narwhal'
+
+# Install more recent versions of some macOS tools.
+brew 'vim', args: ['with-override-system-vi']
+brew 'homebrew/dupes/grep'
+brew 'homebrew/dupes/screen'
+brew 'homebrew/dupes/zlib'
+brew 'homebrew/dupes/openssh'
+
+# Install some CTF tools.
+brew 'awscli'
+brew 'apr'
+brew 'apr-util'
+brew 'autoconf'
+brew 'automake'
+brew 'axel'
+brew 'binwalk'
+brew 'boost'
+brew 'c-ares'
+brew 'cifer'
+brew 'composer'
+brew 'cscope'
+brew 'curl'
+brew 'dex2jar'
+brew 'dns2tcp'
+brew 'doxygen'
+brew 'drush'
+brew 'elixir'
+brew 'fcrackzip'
+brew 'fftw'
+brew 'foremost'
+brew 'freetype'
+brew "ffmpeg",
+  args: [
+  "with-fdk-aac",
+  "with-fontconfig",
+  "with-freetype",
+  "with-frei0r",
+  "with-libass",
+  "with-libbluray",
+  "with-libbs2b",
+  "with-libcaca",
+  "with-libsoxr",
+  "with-libssh",
+  "with-libvidstab",
+  "with-libvorbis",
+  "with-libvpx",
+  "with-opencore-amr",
+  "with-openh264",
+  "with-openjpeg",
+  "with-openssl",
+  "with-opus",
+  "with-rtmpdump",
+  "with-rubberband",
+  "with-schroedinger",
+  "with-sdl2",
+  "with-snappy",
+  "with-speex",
+  "with-theora",
+  "with-tools",
+  "with-webp",
+  "with-x265",
+  "with-zeromq",
+  "with-zimg" ]
+brew 'gcc'
+brew 'gdbm'
+brew 'gettext'
+brew 'gmp'
+brew 'grep'
+brew 'htop'
+brew 'hashpump'
+brew 'highlight'
+brew 'hydra'
+brew 'icu4c'
+brew 'isl'
+brew 'jansson'
+brew 'jasper'
+brew 'jemalloc'
+brew 'jmeter'
+brew 'john'
+brew 'jpeg'
+brew 'knock'
+brew 'libdnet'
+brew 'libev'
+brew 'libevent'
+brew 'libidn'
+brew 'libmpc'
+brew 'libpng'
+brew 'libsamplerate'
+brew 'libssh2'
+brew 'libtiff'
+brew 'libtool'
+brew 'libxml2'
+brew 'libyaml'
+brew 'lua'
+brew 'lynx'
+brew 'macvim'
+brew 'mpfr'
+brew 'mad'
+brew 'nmap'
+brew 'ncftp'
+brew 'node'
+brew 'netpbm'
+brew 'nghttp2'
+brew 'openssh'
+brew 'openssl'
+brew 'pcre'
+brew 'perl'
+brew 'python'
+brew 'ruby'
+brew 'readline'
+brew "homebrew/dupes/rsync"
+brew 'terminal-notifier'
+brew 'trash'
+brew 'pngcheck'
+brew 'screen'
+brew 'socat'
+brew 'sqlmap'
+brew 'spdylay'
+brew 'tcpflow'
+brew 'tcpreplay'
+brew 'tcptrace'
+brew 'ucspi-tcp' # `tcpserver` etc.
+brew 'xz'
+brew 'zlib'
+
+# Install Git and Related Tools.
+brew 'git'
+brew 'gist'
+brew 'git-lfs'
+
+# MAC Tools
+brew "lastfmfpclient"
+brew "sqlite"
+brew "youtube-dl"
+brew "libav"
+brew "stow"
+
+# Install other useful binaries.
+brew 'ack'
+brew 'dark-mode'
+brew 'imagemagick', args: ['with-webp']
+brew 'lua'
+brew 'lynx'
+brew 'p7zip'
+brew 'pigz'
+brew 'pkg-config'
+brew 'pv'
+brew 'rename'
+brew 'rhino'
+brew 'ssh-copy-id'
+brew 'speedtest_cli'
+brew 'ssdeep'
+brew 'taglib'
+brew 'testssl'
+brew 'tree'
+brew 'unixodbc'
+brew 'vbindiff'
+brew 'webkit2png'
+brew 'zopfli'
+
+# Install font tools.
+tap 'bramstein/webfonttools'
+brew 'sfnt2woff'
+brew 'sfnt2woff-zopfli'
+brew 'woff2'
+
+# Install PHP Web Development Environment
+brew 'homebrew/apache/httpd24'
+brew 'mysql', restart_service: true, conflicts_with: ['homebrew/versions/mysql56']
+brew "homebrew/php/php56",
+  args: [
+  "with-apache",
+  "with-pear" ]
+brew 'php56-apcu'
+brew 'php56-ssh2'
+brew 'php56-xdebug'
+brew 'php56-yaml'
+brew 'php56-igbinary'
+brew 'php56-memcached'
+brew 'php56-redis'
+brew 'php-code-sniffer'  
+
+# Install Some Web Tools
+brew 'composer'
+brew 'drush'
+
+cask_args appdir: '/Applications'
+
+# Brew Install Software
+cask "adium-beta"
+cask "adobe-creative-cloud"
+cask "airfoil"
+cask "alfred"
+cask "amazon-music"
+cask "amazon-workspaces"
+cask "android-file-transfer"
+cask "appcleaner"
+cask "atom-beta"
+cask "autodmg"
+cask "balsamiq-mockups"
+cask "betterzipql"
+cask "brave"
+cask "caffeine"
+cask "camtasia"
+cask "ccleaner"
+cask "charles"
+cask "cheatsheet"
+cask "dash"
+cask "disk-inventory-x"
+cask "docker-toolbox"
+cask "dropbox"
+cask "eclipse-php"
+cask "evernote"
+cask "filezilla"
+cask "firefox"
+cask "fish"
+cask "flux"
+cask "gisto"
+cask "github-desktop"
+cask "gitup"
+cask "gitkraken"
+cask "google-chrome"
+cask "google-drive"
+cask "google-hangouts"
+# cask "google-nik-collection"
+# cask "handbrake"
+# cask "handbrakecli"
+cask "harmony"
+cask "iterm2"
+cask "imageoptim"
+cask "integrity"
+# cask "itunes-producer"
+cask "joinme"
+cask 'java' unless system '/usr/libexec/java_home --failfast'
+# cask "lmms"
+cask "macdown"
+cask "mysqlworkbench"
+cask "namechanger"
+cask "netbeans-php"
+cask "osxfuse"
+cask "opera"
+# cask "openshot-video-editor"
+cask "pencil"
+cask "postman"
+cask "qlcolorcode"
+cask "qlmarkdown"
+cask "qlprettypatch"
+cask "qlstephen"
+cask "quicklook-csv"
+cask "quicklook-json"
+cask "rescuetime"
+# cask "selfcontrol"
+cask "scrivener"
+cask "sequel-pro"
+cask "skitch"
+cask "skype"
+cask "slack"
+cask "sourcetree"
+cask "skypewebplugin"
+cask "smartgit"
+# cask "snagit"
+cask "soapui"
+cask "sourcetree"
+cask "spectacle"
+cask "sublime-text"
+cask "suspicious-package"
+cask "virtualbox"
+cask "vlc"
+cask "webpquicklook"
+cask "xquartz"
+cask "xmind"
+cask "the-unarchiver"
+
+# Install last Due to Dependencies.
+cask "arduino"
+brew "bfg"
+cask "logitech-harmony"
+cask "netbeans-php"
+brew "ntfs-3g"
+brew 'solr'
+brew 'xpdf'
+
+# Mac Apple Store CLI more info @ https://github.com/mas-cli/mas
+brew "argon/mas/mas"
