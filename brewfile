@@ -331,4 +331,4 @@ brew 'solr'
 brew 'xpdf'
 
 # Mac Apple Store CLI more info @ https://github.com/mas-cli/mas
-brew "argon/mas/mas"
+brew "mas"

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#! /bin/bash
 
 # ======== XCode ==========
 
@@ -12,6 +12,10 @@ sudo xcodebuild -license
 
 ./brew.sh
 
+# ========= Basic System Configurations ==========
+
+./config.sh
+
 # ========= Copy basic .dotfiles ==========
 
-./bootstrap.sh
+#./bootstrap.sh
