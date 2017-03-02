@@ -58,6 +58,7 @@ brew 'homebrew/dupes/openssh'
 
 # Install some CTF tools.
 brew 'awscli'
+brew 'ant'
 brew 'apr'
 brew 'apr-util'
 brew 'autoconf'
@@ -179,7 +180,6 @@ brew 'gist'
 brew 'git-lfs'
 
 # MAC Tools
-brew "lastfmfpclient"
 brew "sqlite"
 brew "youtube-dl"
 brew "libav"
@@ -228,7 +228,7 @@ brew 'php56-yaml'
 brew 'php56-igbinary'
 brew 'php56-memcached'
 brew 'php56-redis'
-brew 'php-code-sniffer'  
+brew 'php-code-sniffer'
 
 # Install Some Web Tools
 brew 'composer'
@@ -247,11 +247,13 @@ cask "android-file-transfer"
 cask "appcleaner"
 cask "atom-beta"
 cask "autodmg"
+cask "box-sync"
 cask "balsamiq-mockups"
 cask "betterzipql"
 cask "brave"
 cask "caffeine"
 cask "camtasia"
+cask "cakebrew"
 cask "ccleaner"
 cask "charles"
 cask "cheatsheet"
@@ -283,14 +285,18 @@ cask "integrity"
 cask "joinme"
 cask 'java' unless system '/usr/libexec/java_home --failfast'
 # cask "lmms"
+cask "lastfm"
+#cask "lastpass"
 cask "macdown"
 cask "mysqlworkbench"
 cask "namechanger"
+cask "nylas-mail"
 cask "netbeans-php"
 cask "osxfuse"
 cask "opera"
 # cask "openshot-video-editor"
 cask "pencil"
+#cask "polymail"
 cask "postman"
 cask "qlcolorcode"
 cask "qlmarkdown"

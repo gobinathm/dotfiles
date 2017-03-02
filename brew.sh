@@ -51,7 +51,7 @@ mas install 409183694
 mas install 405399194
 # Last Pass LastPass
 mas install 926036361
-# Microsoft OneNote 
+# Microsoft OneNote
 mas install 784801555
 # VOX Music Player
 mas install 461369673
@@ -63,11 +63,11 @@ mas install 418412301
 mas install 407963104
 # Aperture
 mas install 408981426
-# Duplicates Cleaner 
+# Duplicates Cleaner
 mas install 1012324495
 # Xcode
 mas install 497799835
-# Affinity Photo 
+# Affinity Photo
 mas install 824183456
 # Wunderlist
 mas install 410628904
@@ -85,5 +85,5 @@ mas install 865500966
 mas install 408981434
 # Pocket ~ Offline Reader
 mas install 568494494
-#  Disk Diag 
+#  Disk Diag
 mas install 672206759
