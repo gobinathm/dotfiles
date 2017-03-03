@@ -34,13 +34,14 @@ brew tap "homebrew/completions"
 brew tap "homebrew/php"
 
 # Install Brew formulae and apps via Cask
+# this will process the Brewfile in the current directory
 brew bundle -v
 
 # Remove outdated versions from the cellar.
 brew cleanup
 
 # Install Mac Application Store Softwares.
-
+#
 # CheatSheet
 mas install 529456740
 # DrCleanerPreview

@@ -1,7 +1,6 @@
 #! /bin/bash
 
 # ======== XCode ==========
-
 # Install Command Line Tools
 xcode-select --install
 
@@ -9,13 +8,10 @@ xcode-select --install
 sudo xcodebuild -license
 
 # ========= Brew ==========
-
 ./brew.sh
 
-# ========= Basic System Configurations ==========
-
+# ========= Basic Configurations ==========
 ./config.sh
 
 # ========= Copy basic .dotfiles ==========
-
 #./bootstrap.sh
