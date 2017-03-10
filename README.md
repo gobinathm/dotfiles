@@ -1,4 +1,5 @@
-# Gobi's dotfiles
+## Gobi's dotfiles         [![Build Status](https://travis-ci.org/gobinathm/dotfiles.svg?branch=master)](https://travis-ci.org/gobinathm/dotfiles)
+
 :wrench: .dotfiles — techies defaults for macOS
 
 ## Installation

@@ -1,0 +1,11 @@
+---
+language: shell
+sudo: required
+notifications:
+  email: true
+services:
+  - docker
+script:
+  - make test
+notifications:
+  email: i@gobinath.com
