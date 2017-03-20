@@ -46,9 +46,11 @@ fi;
 ## Update Plugin & Switch to Zsh Shell
 #sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-
-# ========= Look & Feel ==========
+# ========= UX & UI ==========
 #
+# Set standby delay to 24 hours (default is 1 hour)
+sudo pmset -a standbydelay 86400
+
 # Appearance
 defaults write -g 'AppleAquaColorVariant' -int 6
 
@@ -155,6 +157,9 @@ defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 # Enable Debug Menu in the Mac App Store
 defaults write com.apple.appstore ShowDebugMenu -bool true
 
+# Screen Saver: Start after: Never
+defaults -currentHost write 'com.apple.screensaver' 'idleTime' -int 5
+
 # ========= Finder ==========
 #
 # Defaults to Icon View, for other view change icnv to one of the below
@@ -175,17 +180,11 @@ defaults write 'com.apple.finder' 'ShowStatusBar' -bool true
 # Customize Toolbar…
 defaults write 'com.apple.finder' 'NSToolbar Configuration Browser' '{ "TB Item Identifiers" = ( "com.apple.finder.BACK", "com.apple.finder.PATH", "com.apple.finder.SWCH", "com.apple.finder.ARNG", "NSToolbarFlexibleSpaceItem", "com.apple.finder.SRCH", "com.apple.finder.ACTN" ); "TB Display Mode" = 2; }'
 
-### View > Show View Options: [${HOME}]
-
-# Show Library Folder: on
-chflags nohidden "${HOME}/Library"
-
-### Window
+# allow quitting via ⌘ + Q; doing so will also hide desktop icons
+defaults write com.apple.finder QuitMenuItem -bool true
 
 # Copy
 defaults write 'com.apple.finder' 'CopyProgressWindowLocation' -string '{2160, 23}'
-
-### Preferences… > General
 
 # Show these items on the desktop: Hard disks: on
 defaults write 'com.apple.finder' 'ShowHardDrivesOnDesktop' -bool false
@@ -203,13 +202,133 @@ defaults write 'com.apple.finder' 'ShowMountedServersOnDesktop' -bool false
 defaults write 'com.apple.finder' 'NewWindowTarget' -string 'PfHm'
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
-# Preferences… > Advanced
+# Keep folders on top when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+# Open a new Finder window when a volume is mounted
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
 # Show all filename extensions: on
 defaults write -g 'AppleShowAllExtensions' -bool false
 
 # Show warning before emptying the Trash: on
 defaults write 'com.apple.finder' 'WarnOnEmptyTrash' -bool false
+
+# empty Trash securely by default
+defaults write com.apple.finder EmptyTrashSecurely -bool true
+
+# Enable the MacBook Air SuperDrive on any Mac
+sudo nvram boot-args="mbasd=1"
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+# Remove Dropbox’s green checkmark icons in Finder
+file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
+[ -e "${file}" ] && mv -f "${file}" "${file}.bak"
+
+# Dock
+#
+# Icon Size: 28
+defaults write com.apple.dock tilesize -int 28
+
+# Magnification: off
+defaults write com.apple.dock magnification -bool false
+defaults write com.apple.dock largesize -int 64
+
+# Position on screen: Left
+defaults write com.apple.dock orientation -string left
+
+# auto hide/show dock
+defaults write com.apple.dock autohide -bool true
+
+# Make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool true
+
+# minimize windows into the application icon
+defaults write com.apple.dock minimize-to-application -bool true
+
+# show indicators for open applications
+defaults write com.apple.dock show-process-indicators -bool true
+
+# Minimize windows using: Scale effect
+defaults write com.apple.dock mineffect -string scale
+
+# Animate opening applications: off
+defaults write com.apple.dock launchanim -bool false
+
+# Enable highlight hover effect for the grid view of a stack (Dock)
+defaults write com.apple.dock mouse-over-hilite-stack -bool true
+
+# Enable spring loading for all Dock items
+defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
+
+# Speed up Mission Control animations
+defaults write com.apple.dock expose-animation-duration -float 0.1
+
+# Don’t group windows by app in Mission Control
+defaults write com.apple.dock expose-group-by-app -bool false
+
+# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+
+# Hot Corners : Possible values
+#  0: no-op
+#  2: Mission Control (all windows)
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+#
+# Hot Corners… Top Left: Mission Control (all windows)
+defaults write 'com.apple.dock' 'wvous-tl-corner' -int 2
+defaults write 'com.apple.dock' 'wvous-tl-modifier' -int 0
+
+# Hot Corners… Bottom Left: Desktop
+defaults write 'com.apple.dock' 'wvous-bl-corner' -int 4
+defaults write 'com.apple.dock' 'wvous-bl-modifier' -int 0
+
+# Hot Corners… Top Right: Notification Center
+defaults write 'com.apple.dock' 'wvous-tr-corner' -int 12
+defaults write 'com.apple.dock' 'wvous-tr-modifier' -int 0
+
+# Hot Corners… Bottom Right: Put Display to Sleep
+defaults write 'com.apple.dock' 'wvous-tr-corner' -int 10
+defaults write 'com.apple.dock' 'wvous-tr-modifier' -int 0
+
+# ========= Sound ==========
+#
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
+# Play feedback when volume is changed: off
+defaults write com.apple.sound.beep.feedback -bool false
+
+# Select an alert sound: Sosumi
+defaults write com.apple.systemsound com.apple.sound.beep.sound -string '/System/Library/Sounds/Sosumi.aiff'
+
+# Play user interface sound effects: off
+defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -int 0
+
+# ========= Screen / Security ==========
+#
+# General: Require password: on
+defaults write com.apple.screensaver askForPassword -int 1
+
+# General: Require password: 5 seconds after sleep or screen saver begins
+defaults write com.apple.screensaver askForPasswordDelay -int 5
+
+
 
 # ========= Activity Monitor ==========
 #
@@ -234,7 +353,11 @@ defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
 defaults write com.apple.screencapture type png
 
 # Change Default Screenshot location
-defaults write com.apple.screencapture location ~/Pictures/Screenshots
+# Switch to Required Folders
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+
+# Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool false
 
 # ========= Photos ==========
 #
@@ -345,6 +468,104 @@ defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 # Press Tab to highlight each item on a web page
 defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
+
+# ========= Energy Saver  ==========
+#
+# Power Nap: enabled
+sudo pmset -c powernap 1
+
+# Auto Start after a power failure: enabled
+sudo pmset -c autorestart 1
+
+# Display off after 10 min Inactivity
+sudo pmset -c displaysleep 10
+
+# Prevent computer from sleeping when the display is off: enabled
+sudo pmset -c sleep 0
+
+# Hard disks to sleep when possible: 60 min
+sudo pmset -c disksleep 60
+
+# Wake for Ethernet network access: enabled
+sudo pmset -c womp 1
+
+# ========= Launchpad & Spotlight  ==========
+#
+# Add iOS & Watch Simulator to Launchpad
+sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
+sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
+
+# Hide Spotlight tray-icon (and subsequent helper)
+sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+
+# Disable Spotlight indexing for any volume that gets mounted
+sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+
+# Change indexing order and disable some search results
+# Yosemite-specific search results (remove them if you are using macOS 10.9 or older):
+# 	MENU_DEFINITION
+# 	MENU_CONVERSION
+# 	MENU_EXPRESSION
+# 	MENU_SPOTLIGHT_SUGGESTIONS (send search queries to Apple)
+# 	MENU_WEBSEARCH             (send search queries to Apple)
+# 	MENU_OTHER
+defaults write com.apple.spotlight orderedItems -array \
+	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
+	'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+	'{"enabled" = 1;"name" = "DIRECTORIES";}' \
+	'{"enabled" = 1;"name" = "PDF";}' \
+	'{"enabled" = 1;"name" = "FONTS";}' \
+	'{"enabled" = 0;"name" = "DOCUMENTS";}' \
+	'{"enabled" = 0;"name" = "MESSAGES";}' \
+	'{"enabled" = 0;"name" = "CONTACT";}' \
+	'{"enabled" = 0;"name" = "EVENT_TODO";}' \
+	'{"enabled" = 0;"name" = "IMAGES";}' \
+	'{"enabled" = 0;"name" = "BOOKMARKS";}' \
+	'{"enabled" = 0;"name" = "MUSIC";}' \
+	'{"enabled" = 0;"name" = "MOVIES";}' \
+	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+	'{"enabled" = 0;"name" = "SOURCE";}' \
+	'{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
+	'{"enabled" = 0;"name" = "MENU_OTHER";}' \
+	'{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
+	'{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
+	'{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
+	'{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
+# Load new settings before rebuilding the index
+killall mds > /dev/null 2>&1
+# Make sure indexing is enabled for the main volume
+sudo mdutil -i on / > /dev/null
+# Rebuild the index from scratch
+sudo mdutil -E / > /dev/null
+
+# ========= Terminal  ==========
+#
+# Install the Solarized Dark theme for iTerm
+open "${HOME}/init/Solarized Dark.itermcolors"
+
+# Don’t display prompt when quitting iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+# CharSet to use in Terminal app : UTF-8
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Disable the line marks
+defaults write com.apple.Terminal ShowLineMarks -int 0
+
+# Secure Keyboard Entry in Terminal: Enabled
+# Ref: https://security.stackexchange.com/a/47786/8918
+defaults write com.apple.terminal SecureKeyboardEntry -bool true
+
+# ========= Text to Speech  ==========
+#
+# Set System Voice: Allison
+if [ -d '/System/Library/Speech/Voices/Allison.SpeechVoice' ]; then
+	defaults write 'com.apple.speech.voice.prefs' 'VisibleIdentifiers' '{ "com.apple.speech.synthesis.voice.allison.premium" = 1; }'
+	defaults write 'com.apple.speech.voice.prefs' 'SelectedVoiceName' -string 'Allison'
+	defaults write 'com.apple.speech.voice.prefs' 'SelectedVoiceCreator' -int 1886745202
+	defaults write 'com.apple.speech.voice.prefs' 'SelectedVoiceID' -int 184555197
+fi
 
 # ========= GIT lfs Config  ==========
 #
