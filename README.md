@@ -6,13 +6,27 @@
 
 **Warning:** If you want to give these dotfiles a try, clone the repo, review the code, and remove things you don’t want or need. Don’t blindly use my settings. Use at your own risk!
 
-### Fresh Mac Setup
+### Basic Oh My Zsh Installation
+Oh My Zsh is installed by running one of the following commands in your terminal.
+
+```bash
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+```
+
+### Install powerlevel9k theme for Oh My Zsh
+To install this theme for use in Oh-My-Zsh, clone this repository into your OMZ custom/themes directory.
+
+```bash
+$ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+```
+
+### Fresh Mac Setup (Outdated)
 
 ```bash
 git clone https://github.com/gobinathm/dotfiles.git && cd dotfiles && source install.sh
 ```
 
-### Git-free install
+### Git-free install (Outdated)
 
 To install these dotfiles without Git:
 
