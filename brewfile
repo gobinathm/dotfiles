@@ -24,17 +24,18 @@ brew 'wget', args: ['with-iri']
 # Install Bash 4.
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
 # running `chsh`.
-brew 'bash'
-brew 'bash-completion2'
+#brew 'bash'
+#brew 'bash-completion2'
 
 # Install zsh.
 # Note: don’t forget to add `/usr/local/bin/zsh` to `/etc/shells` before
 # running `chsh`.
-#brew 'zsh'
-#brew 'zsh-completions'
+brew 'zsh'
+brew 'zsh-completions'
+brew 'zsh-syntax-highlighting'
 
 # Install useful completions
-brew 'homebrew/completions/brew-cask-completion'
+#brew 'homebrew/completions/brew-cask-completion'
 brew 'homebrew/completions/bundler-completion'
 brew 'homebrew/completions/gem-completion'
 brew 'homebrew/completions/grunt-completion'
