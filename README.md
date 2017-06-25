@@ -20,6 +20,9 @@ To install this theme for use in Oh-My-Zsh, clone this repository into your OMZ 
 $ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ```
 
+### Install Powerline Fonts
+You can find the [installation instructions for Powerline Fonts here](https://powerline.readthedocs.org/en/latest/installation/linux.html#fonts-installation). You can also find the raw font files [in this Github repository](https://github.com/powerline/fonts) if you want to manually install them for your OS. Once the font installation is successfuly, ensure you have select any of the powerline font as your terminal font.
+
 ### Fresh Mac Setup (Outdated)
 
 ```bash
