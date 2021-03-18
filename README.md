@@ -23,8 +23,11 @@ $ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/the
 ### Install Powerline Fonts
 You can find the [installation instructions for Powerline Fonts here](https://powerline.readthedocs.org/en/latest/installation/linux.html#fonts-installation). You can also find the raw font files [in this Github repository](https://github.com/powerline/fonts) if you want to manually install them for your OS. Once the font installation is successfuly, ensure you have select any of the powerline font as your terminal font.
 
-####View of the Terminal
+#### View of the Terminal
 ![iTerm2 Screenshot](screenshot.png)
+
+### Note
+Before running `config.sh` select Full Disk Access in the Privacy tab of the Security & Privacy preference pane, and add Terminal to the list of applications which are allowed Full Disk Access.
 
 ### Fresh Mac Setup (Outdated)
 
@@ -54,6 +57,6 @@ Log any of them in the issue queue
 
 ## Inspiration and Reference …
 
-* [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
+* [Mathias Bynens](https://github.com/mathiasbynens/dotfiles) - Most of the Concepts
 * [@ptb](https://github.com/ptb/Complete-macOS-Setup/)
 * [Yossef Mendelssohn](https://github.com/ymendel/dotfiles/)

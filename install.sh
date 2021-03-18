@@ -13,5 +13,11 @@ sudo xcodebuild -license
 # ========= Basic Configurations ==========
 ./config.sh
 
+# Find any problems with brew setup
+brew doctor
+
+# Remove outdated versions from the cellar.
+brew cleanup
+
 # ========= Copy basic .dotfiles ==========
-#./bootstrap.sh
+source bootstrap.sh
