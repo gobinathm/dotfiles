@@ -1,12 +1,12 @@
 ---
-language: bash
+language: zsh
 sudo: required
 script:
-  -  bash bootstrap.sh
+  - ./install.sh
 matrix:
   include:
     - os: osx
-      osx_image: xcode9.2
+      osx_image: xcode12
 notifications:
   email:
     on_failure: always
